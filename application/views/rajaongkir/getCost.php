@@ -41,7 +41,7 @@ if ($err) {
 }
 ?>
 
-<?php echo $data['rajaongkir']['origin_details']['city_name'];?> ke <?php echo $data['rajaongkir']['destination_details']['city_name'];?> @<?php echo $berat;?>gram
+<?php echo $data['rajaongkir']['origin_details']['city_name'];?> ke <?php echo $data['rajaongkir']['destination_details']['city_name'];?> @<?php echo $berat;?>gram Kurir : <?php echo strtoupper($courier); ?>
 
 <?php
  for ($k=0; $k < count($data['rajaongkir']['results']); $k++) {

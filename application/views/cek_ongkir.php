@@ -100,6 +100,7 @@
 				    	<option value="">Pilih Kurir</option>
 				    	<option value="jne">JNE</option>
 				    	<option value="pos">POS</option>
+				    	<option value="tiki">TIKI</option>
 				    </select>
 					<br>
 				    <button type="button" onclick="tampil_data('data')" class="btn btn-info">Cek Ongkir</button>
