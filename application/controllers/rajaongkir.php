@@ -64,4 +64,16 @@ class Rajaongkir extends CI_Controller {
 		$this->load->view('rajaongkir/getCost', $data);
 	}
 
+
+	function getResi()
+	{
+		$waybill = $this->input->get('waybill');
+
+		$data = array('waybill' => $waybill
+
+		);
+		
+		$this->load->view('rajaongkir/getResi', $data);
+	}
+
 }

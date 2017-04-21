@@ -142,6 +142,61 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="panel panel-warning">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Cek Resi</h3>
+				  </div>
+				  <div class="panel-body">
+				  	<input type="text" name="no_resi" placeholder="No Resi" id="no_resi" class="form-control">
+					<br>
+				    <button type="button" onclick="tampil_resi('data')" class="btn btn-info">Cek Resi</button>
+
+				  </div>
+				</div>
+				<script>
+					function tampil_resi(act){
+					      var resi = $('#no_resi').val();
+
+					      if(resi == ""){
+					      	alert("harap isi data dengan lengkap");
+					      }else{
+					      	$.ajax({
+					          url: "rajaongkir/getResi",
+					          type: "GET",
+					          data : {waybill: resi},
+					          success: function (ajaxData){
+					              //$('#tombol_export').show();
+					              //$('#hasilReport').show();
+					              $("#hasil_resi").html(ajaxData);
+					          }
+					      	});
+					      }
+
+
+					  };
+				</script>
+			</div>
+			<div class="col-md-8">
+				<div class="panel panel-success">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Cek Resi</h3>
+				  </div>
+				  <div class="panel-body">
+				  	<ol>
+					    <div id="hasil_resi">
+
+					    </div>
+				    </ol>
+				  </div>
+				</div>
+			</div>
+
+		</div>
+
+
 	</div>
 </div>
 
