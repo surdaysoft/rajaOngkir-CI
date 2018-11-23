@@ -13,7 +13,7 @@ class Rajaongkir extends CI_Controller {
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-		  CURLOPT_URL => "http://api.rajaongkir.com/starter/city?province=$province",
+		  CURLOPT_URL => "http://api.rajaongkir.com/basic/city?province=$province",
 		  CURLOPT_RETURNTRANSFER => true,
 		  CURLOPT_ENCODING => "",
 		  CURLOPT_MAXREDIRS => 10,
@@ -21,7 +21,7 @@ class Rajaongkir extends CI_Controller {
 		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		  CURLOPT_CUSTOMREQUEST => "GET",
 		  CURLOPT_HTTPHEADER => array(
-		    "key: API-KEY"
+		    "key: ISI DENGAN KEY DARI RAJAONGKIR"
 		  ),
 		));
 
@@ -41,8 +41,15 @@ class Rajaongkir extends CI_Controller {
 		  for ($j=0; $j < count($data['rajaongkir']['results']); $j++){
 		  
 
-		    echo "<option value='".$data['rajaongkir']['results'][$j]['city_id']."'>".$data['rajaongkir']['results'][$j]['city_name']."</option>";
-		  
+		    echo "<option value='".$data['rajaongkir']['results'][$j]['city_id']."'>".$data['rajaongkir']['results'][$j]['city_name']." (".$data['rajaongkir']['results'][$j]['type'].")"."</option>";
+		  	 /*
+		  	 if($data['rajaongkir']['results'][$j]['type']=="Kabupaten"){
+		  	 	echo "Kabupaten";
+		  	 }esle{
+		  	 	echo "Kota";
+		  	 }
+		  	 */
+
 		  }
 		}
 	}
@@ -62,6 +69,17 @@ class Rajaongkir extends CI_Controller {
 		);
 		
 		$this->load->view('rajaongkir/getCost', $data);
+	}
+
+	function getResi()
+	{
+		$waybill = $this->input->get('waybill');
+
+		$data = array('waybill' => $waybill
+
+		);
+		
+		$this->load->view('rajaongkir/getResi', $data);
 	}
 
 }
